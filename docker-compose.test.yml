@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  server: 
+    container_name: faketime_test
+    image: ubuntu:20.04
+    tty: true
+    volumes:
+      - "./faketime:/faketime"
+      - "./timejump.sh:/timejump.sh"
+    environment:
+      - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/faketime
+      - LD_PRELOAD=/faketime/libfaketime.so.1
