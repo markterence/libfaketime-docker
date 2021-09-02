@@ -6,13 +6,13 @@ Compile [libfaketime](https://github.com/wolfcw/libfaketime) in docker.
 - Build `libfaketime` on `ubuntu:20.4` image
 
 ```shell
-docker build --tag markterence/faketime:latest .
+docker build --tag libfaketime:latest .
 ```
 
 - Pull the `libfaketime.so.1` and `libfaketimeMT.so.1` from the container and dump it on the host
 
 ```
-CID=$(docker create markterence/faketime:latest)
+CID=$(docker create libfaketime:latest)
 docker cp ${CID}:/usr/local/lib/faketime/ dist
 docker rm ${CID}
 ```
